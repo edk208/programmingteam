@@ -20,7 +20,7 @@ Practice
 Eat
 
 # First steps for all new members
-Go to the UVA online judge site [link](uva.onlinejudge.org)
+Go to the UVA online judge site [link](http://uva.onlinejudge.org)
 * Register on this site
 * Follow Browse Problems Link
 * Pick problem 100 - The 3n+1 problem
