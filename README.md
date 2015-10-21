@@ -1,4 +1,4 @@
-programming team material
+# Villanova Programming Team Material
 -------------------------
 This is a Git repository for material related to the programming team at Villanova University
 
@@ -9,11 +9,14 @@ For 2015 we will meet Wednesdays from 4:30-5:45 in Mendel 154
 Discussion
 * programming 
 * contests
+
 Presentation
 * student driven
+
 Practice
 * problem solving
 * contest participation
+
 Eat
 
 # First steps for all new members
