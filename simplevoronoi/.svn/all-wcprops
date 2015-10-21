@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/simplevoronoi/!svn/ver/2/trunk/simplevoronoi/src/main/java/be/humphreys/simplevoronoi
+END
+Halfedge.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/simplevoronoi/!svn/ver/2/trunk/simplevoronoi/src/main/java/be/humphreys/simplevoronoi/Halfedge.java
+END
+Edge.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/simplevoronoi/!svn/ver/2/trunk/simplevoronoi/src/main/java/be/humphreys/simplevoronoi/Edge.java
+END
+Site.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/simplevoronoi/!svn/ver/2/trunk/simplevoronoi/src/main/java/be/humphreys/simplevoronoi/Site.java
+END
+GraphEdge.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/simplevoronoi/!svn/ver/2/trunk/simplevoronoi/src/main/java/be/humphreys/simplevoronoi/GraphEdge.java
+END
+Point.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/simplevoronoi/!svn/ver/2/trunk/simplevoronoi/src/main/java/be/humphreys/simplevoronoi/Point.java
+END
+Voronoi.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/simplevoronoi/!svn/ver/2/trunk/simplevoronoi/src/main/java/be/humphreys/simplevoronoi/Voronoi.java
+END
