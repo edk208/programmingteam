@@ -27,3 +27,50 @@ Go to the UVA online judge site [link](http://uva.onlinejudge.org)
 * Code your solution
 * Submit for testing on the uva site
 
+Stuff to do:
+
+Depth First Search
+Closest Pair
+
+Combinatorial optimization
+
+Min-cost max-flow (C++)
+Min-cost matching (C++)
+Max bipartite matching (C++)
+Global min cut (C++)
+
+Geometry
+
+Convex hull (C++)
+Miscellaneous geometry (C++)
+Java geometry (Java)
+3D geometry (Java)
+Slow Delaunay triangulation / Voronoi
+Numerical algorithms
+
+Number theoretic algorithms (modular, Chinese remainder, linear Diophantine) (C++)
+Systems of linear equations, matrix inverse, determinant (C++)
+Reduced row echelon form, matrix rank (C++)
+Simplex algorithm (C++)
+
+Graph algorithms
+
+Fast Dijkstra's algorithm (C++)
+Strongly connected components (C)
+Eulerian Path (C++)
+
+Data structures
+
+Suffix arrays (C++)
+Binary Indexed Tree
+Union-Find Set (C/C++)
+KD-tree (C++)
+Lazy Segment Tree (Java)
+Lowest Common Ancestor (C++)
+Miscellaneous
+
+Longest increasing subsequence (C++)
+Dates (C++)
+Regular expressions (Java)
+Prime numbers (C++)
+Knuth-Morris-Pratt (C++)
