@@ -1,0 +1,875 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0041)http://algs4.cs.princeton.edu/cheatsheet/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="apple-touch-icon" href="http://algs4.cs.princeton.edu/apple-touch-icon.png">
+<link rel="shortcut icon" href="http://algs4.cs.princeton.edu/favicon.ico">
+
+<link rel="stylesheet" href="./Algorithms and Data Structures Cheatsheet_files/algs4.css" type="text/css" media="screen">
+
+<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0">
+<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5">
+
+<!-- IE HACKS -->
+<!--[if IE]>
+<style type="text/css" media="screen">
+ #menu ul li {float: left; width: 100%;}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+body {
+behavior: url(/csshover.htc);
+} 
+#menu ul li {float: left; width: 100%;}
+#menu ul li a {height: 1%;} 
+
+#menu a, #menu h2 {
+font: bold 0.9em/1.5em arial, helvetica, sans-serif;
+} 
+
+</style>
+<![endif]-->
+
+
+
+<title>
+Algorithms and Data Structures Cheatsheet</title>
+
+
+<meta name="AUTHOR" content="Robert Sedgewick and Kevin Wayne">
+<meta name="KEYWORDS" content="Algorithms and Data Structures Cheatsheet,Algorithms,4th edition,data structures,Java,intro,introduction,Sedgewick,Wayne">
+<meta name="DESCRIPTION" content="The textbook Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne surveys the most important algorithms and data structures in use today. The broad perspective taken makes it an appropriate introduction to the field.">
+<meta name="TITLE" content="Algorithms and Data Structures Cheatsheet. Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne.">
+<meta name="ROBOTS" content="INDEX,FOLLOW">
+
+<script async="" src="./Algorithms and Data Structures Cheatsheet_files/async-ads.js"></script><script type="text/javascript" async="" src="./Algorithms and Data Structures Cheatsheet_files/cse.js"></script><script async="" src="./Algorithms and Data Structures Cheatsheet_files/analytics.js"></script><script type="text/javascript" src="./Algorithms and Data Structures Cheatsheet_files/swfobject.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10811519-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script src="./Algorithms and Data Structures Cheatsheet_files/jsapi" type="text/javascript"></script><link type="text/css" href="./Algorithms and Data Structures Cheatsheet_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Algorithms and Data Structures Cheatsheet_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Algorithms and Data Structures Cheatsheet_files/default+en.I.js"></script><style type="text/css">
+.gsc-control-cse {
+font-family: Arial, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Arial, sans-serif;
+}
+input.gsc-input {
+border-color: #D9D9D9;
+}
+input.gsc-search-button {
+border-color: #666666;
+background-color: #CECECE;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #E9E9E9;
+background-color: #E9E9E9;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-top-color: #FF9900;
+border-left-color: #E9E9E9;
+border-right-color: #E9E9E9;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #E9E9E9;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result.gsc-promotion:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #0000CC;
+}
+.gsc-cursor-page {
+color: #0000CC;
+}
+a.gsc-trailing-more-results:link {
+color: #0000CC;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #000000;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #E9E9E9;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #FF9900;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #336699;
+background-color: #FFFFFF;
+}
+.gsc-completion-title {
+color: #0000CC;
+}
+.gsc-completion-snippet {
+color: #000000;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #0000CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #000000;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #008000;
+}
+.gsc-input input.gsc-input {
+background: none repeat scroll 0% 0% white !important;
+}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gscsep_a{display:none}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 7px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+
+<body>
+
+<div id="menu">
+<div align="center">
+<a class="picture" href="http://algs4.cs.princeton.edu/">
+<img src="./Algorithms and Data Structures Cheatsheet_files/cover.png" width="189" height="236" border="0" alt="Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne">
+</a>  
+</div>
+
+
+
+
+
+<ul>
+  <li><a class="title" href="http://algs4.cs.princeton.edu/">Algorithms, 4th edition</a>
+
+<ul>
+
+
+      <li> <a href="http://algs4.cs.princeton.edu/10fundamentals">1.&nbsp;&nbsp;Fundamentals</a>
+        <ul>
+          <li> <a href="http://algs4.cs.princeton.edu/11model">1.1&nbsp;&nbsp;Programming Model</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/12oop">1.2&nbsp;&nbsp;Data Abstraction</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/13stacks">1.3&nbsp;&nbsp;Stacks and Queues</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/14analysis">1.4&nbsp;&nbsp;Analysis of Algorithms</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/15uf">1.5&nbsp;&nbsp;Case Study: Union-Find</a>
+        </li></ul>
+
+      </li><li> <a href="http://algs4.cs.princeton.edu/20sorting">2.&nbsp;&nbsp;Sorting</a>
+        <ul>
+          <li> <a href="http://algs4.cs.princeton.edu/21elementary">2.1&nbsp;&nbsp;Elementary Sorts</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/22mergesort">2.2&nbsp;&nbsp;Mergesort</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/23quicksort">2.3&nbsp;&nbsp;Quicksort</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/24pq">2.4&nbsp;&nbsp;Priority Queues</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/25applications">2.5&nbsp;&nbsp;Sorting Applications</a>
+        </li></ul>
+
+      </li><li> <a href="http://algs4.cs.princeton.edu/30searching">3.&nbsp;&nbsp;Searching</a>
+        <ul>
+          <li> <a href="http://algs4.cs.princeton.edu/31elementary">3.1&nbsp;&nbsp;Symbol Tables</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/32bst">3.2&nbsp;&nbsp;Binary Search Trees</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/33balanced">3.3&nbsp;&nbsp;Balanced Search Trees</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/34hash">3.4&nbsp;&nbsp;Hash Tables</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/35applications">3.5&nbsp;&nbsp;Searching Applications</a>
+        </li></ul>
+
+      </li><li> <a href="http://algs4.cs.princeton.edu/40graphs">4.&nbsp;&nbsp;Graphs</a>
+        <ul>
+          <li> <a href="http://algs4.cs.princeton.edu/41graph">4.1&nbsp;&nbsp;Undirected Graphs</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/42digraph">4.2&nbsp;&nbsp;Directed Graphs</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/43mst">4.3&nbsp;&nbsp;Minimum Spanning Trees</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/44sp">4.4&nbsp;&nbsp;Shortest Paths</a>
+        </li></ul>
+
+      </li><li> <a href="http://algs4.cs.princeton.edu/50strings">5.&nbsp;&nbsp;Strings</a>
+        <ul>
+          <li> <a href="http://algs4.cs.princeton.edu/51radix">5.1&nbsp;&nbsp;String Sorts</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/52trie">5.2&nbsp;&nbsp;Tries</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/53substring">5.3&nbsp;&nbsp;Substring Search</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/54regexp">5.4&nbsp;&nbsp;Regular Expressions</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/55compression">5.5&nbsp;&nbsp;Data Compression</a>
+        </li></ul>
+
+      </li><li> <a href="http://algs4.cs.princeton.edu/60context">6.&nbsp;&nbsp;Context</a>
+        <ul>
+          <li> <a href="http://algs4.cs.princeton.edu/61event">6.1&nbsp;&nbsp;Event-Driven Simulation</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/62btree">6.2&nbsp;&nbsp;B-trees</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/63suffix">6.3&nbsp;&nbsp;Suffix Arrays</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/64maxflow">6.4&nbsp;&nbsp;Maxflow</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/65reductions">6.5&nbsp;&nbsp;Reductions</a>
+          </li><li> <a href="http://algs4.cs.princeton.edu/66intractability">6.6&nbsp;&nbsp;Intractability</a>
+        </li></ul>
+    </li></ul>
+
+
+
+
+</li><li><a class="title"> Related Booksites</a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td align="center">
+<a class="booksite" href="http://introcs.cs.princeton.edu/">
+   <img src="./Algorithms and Data Structures Cheatsheet_files/cover(1).png" width="80" height="108" border="0" alt="Introduction to Programming in Java
+               by Robert Sedgewick and Kevin Wayne">
+</a>
+</td><td align="center">
+<a class="booksite" href="http://aofa.cs.princeton.edu/">
+   <img src="./Algorithms and Data Structures Cheatsheet_files/cover-analysis-of-algorithms.png" width="81" height="108" border="0" alt="An Introduction to the Analysis of Algorithms by Robert Sedgewick and Philippe Flajolet">
+</a>
+</td></tr>
+</tbody></table>
+
+</li><li><a class="title">Web Resources</a>
+
+
+      </li><li> <a href="http://algs4.cs.princeton.edu/faq">FAQ</a>
+      </li><li> <a href="http://introcs.cs.princeton.edu/java/data">Data</a>
+      </li><li> <a href="http://algs4.cs.princeton.edu/code">Code</a>
+      </li><li> <a href="http://algs4.cs.princeton.edu/errata">Errata</a>
+      </li><li> <a href="http://algs4.cs.princeton.edu/cheatsheet">Cheatsheet</a>
+      </li><li> <a href="http://algs4.cs.princeton.edu/references">References</a>
+      </li><li> <a href="https://www.coursera.org/course/algs4partI">Online Course</a>
+      </li><li> <a href="http://algs4.cs.princeton.edu/lectures">Lecture Slides</a>
+      </li><li> <a href="http://introcs.cs.princeton.edu/java/assignments">Programming Assignments</a>
+   </li></ul>
+
+
+
+<p><br>
+
+<script>
+  (function() {
+    var cx = '005649317310637734940:s7fqljvxwfs';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="___gcse_0"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-en" dir="ltr"><form class="gsc-search-box" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><input autocomplete="off" type="text" size="10" class=" gsc-input" name="search" title="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="outline: none;"><input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button"><input type="button" value="Search" class="gsc-search-button" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr style="display: none;"><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./Algorithms and Data Structures Cheatsheet_files/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form></div></div>
+
+</p><p><br>
+
+
+
+
+</p></div>
+
+
+<div id="content">
+<h1 class="center">Algorithms and Data Structures Cheatsheet</h1> 
+
+<p><br>
+</p><p><br>
+
+
+We summarize the performance characteristics of classic algorithms and
+data structures for sorting, priority queues, symbol tables, and graph processing.
+
+
+
+</p><p><br></p><h2>Sorting.</h2>
+The table below summarizes the number of compares for a variety of sorting
+algorithms, as implemented in this textbook.
+It includes leading constants but ignores lower-order terms.
+
+<p>
+
+</p><center>    
+<table cellspacing="1" cellpadding="5" border="0" bgcolor="#ffffff">
+
+<tbody><tr align="center">
+<th width="100">ALGORITHM</th>
+<th width="100">CODE</th>
+<th width="75">IN PLACE</th>
+<th width="75">STABLE</th>
+<th width="75">BEST</th>
+<th width="75">AVERAGE</th>
+<th width="75">WORST</th>
+<th width="250">REMARKS</th>
+</tr>
+
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>selection sort</b></td>
+<td><a title="Selection" href="http://algs4.cs.princeton.edu/21elementary/Selection.java.html">Selection.java</a></td>
+<td>✔</td>
+<td></td>
+<td>½ <em>N</em><sup> 2</sup></td>
+<td>½ <em>N</em><sup> 2</sup></td>
+<td>½ <em>N</em><sup> 2</sup></td>
+<td><em>N</em> exchanges;<br>quadratic in best case</td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>insertion sort</b></td>
+<td><a title="Insertion" href="http://algs4.cs.princeton.edu/21elementary/Insertion.java.html">Insertion.java</a></td>
+<td>✔</td>
+<td>✔</td>
+<td><em>N</em></td>
+<td>¼ <em>N</em><sup> 2</sup></td>
+<td>½ <em>N</em><sup> 2</sup></td>
+<td>use for small or<br>partially-sorted arrays</td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>bubble sort</b></td>
+<td><a title="Bubble" href="http://algs4.cs.princeton.edu/21elementary/Bubble.java.html">Bubble.java</a></td>
+<td>✔</td>
+<td>✔</td>
+<td><em>N</em></td>
+<td>½ <em>N</em><sup> 2</sup></td>
+<td>½ <em>N</em><sup> 2</sup></td>
+<td>rarely useful;<br>use insertion sort instead</td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>shellsort</b></td>
+<td><a title="Shell" href="http://algs4.cs.princeton.edu/21elementary/Shell.java.html">Shell.java</a></td>
+<td>✔</td>
+<td></td>
+<td>½ <em>N</em> log<sub>3</sub> <em>N</em></td>
+<td>unknown</td>
+<td>c <em>N</em><sup> 3/2</sup></td>
+<td>tight code;<br>subquadratic</td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>mergesort</b></td>
+<td><a title="Merge" href="http://algs4.cs.princeton.edu/22mergesort/Merge.java.html">Merge.java</a></td>
+<td></td>
+<td>✔</td>
+<td>½ <em>N</em> lg <em>N</em></td>
+<td><em>N</em> lg <em>N</em></td>
+<td><em>N</em> lg <em>N</em></td>
+<td><em>N</em> log <em>N</em> guarantee;<br>stable</td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>quicksort</b></td>
+<td><a title="Quick" href="http://algs4.cs.princeton.edu/23quicksort/Quick.java.html">Quick.java</a></td>
+<td>✔</td>
+<td></td>
+<td><em>N</em> lg <em>N</em></td>
+<td>2 <em>N</em> ln <em>N</em></td>
+<td>½ <em>N</em><sup> 2</sup></td>
+<td><em>N</em> log <em>N</em> probabilistic guarantee;<br>fastest in practice</td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>heapsort</b></td>
+<td><a title="Heap" href="http://algs4.cs.princeton.edu/24pq/Heap.java.html">Heap.java</a></td>
+<td>✔</td>
+<td></td>
+<td><em>N</em></td>
+<td>2 <em>N</em> lg <em>N</em></td>
+<td>2 <em>N</em> lg <em>N</em></td>
+<td><em>N</em> log <em>N</em> guarantee;<br>in place</td>
+</tr>
+
+
+<!--
+<tr><td><td><td><td><td><td><td>
+<td colspan = 2><sup>&dagger;</sup> probabilistic guarantee</td></tr>
+-->
+
+</tbody></table>
+</center>
+
+<p><br>
+
+</p><p></p><h2>Priority queues.</h2>
+The table below summarizes the order of growth of the running time of
+operations for a variety of priority queues, as implemented in this textbook.
+It ignores leading constants and lower-order terms.
+Except as noted, all running times are worst-case running times.
+
+<p>
+
+</p><center>    
+<table cellspacing="1" cellpadding="5" border="0" bgcolor="#ffffff">
+
+<tbody><tr align="center">
+<th width="150">DATA STRUCTURE</th>
+<th width="175">CODE</th>
+<th width="75">INSERT</th>
+<th width="75">DEL-MIN</th>
+<th width="75">MIN</th>
+<th width="75">DEC-KEY</th>
+<th width="75">DELETE</th>
+<th width="75">MERGE</th>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>array</b></td>
+<td><a title="BruteIndexMinPQ" href="http://algs4.cs.princeton.edu/24pq/BruteIndexMinPQ.java.html">BruteIndexMinPQ.java</a></td>
+<td>1</td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td>1</td>
+<td>1</td>
+<td><em>N</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>binary heap</b></td>
+<td><a title="IndexMinPQ" href="http://algs4.cs.princeton.edu/24pq/IndexMinPQ.java.html">IndexMinPQ.java</a></td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+<td>1</td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+<td><em>N</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b><em>d</em>-way heap</b></td>
+<td><a title="IndexMultiwayMinPQ" href="http://algs4.cs.princeton.edu/99misc/IndexMultiwayMinPQ.java.html">IndexMultiwayMinPQ.java</a></td>
+<td>log<sub><em>d</em></sub> <em>N</em></td>
+<td><em>d</em> log<sub><em>d</em></sub> <em>N</em></td>
+<td>1</td>
+<td>log<sub><em>d</em></sub> <em>N</em></td>
+<td><em>d</em> log<sub><em>d</em></sub> <em>N</em></td>
+<td><em>N</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>binomial heap</b></td>
+<td><a title="IndexBinomialMinPQ" href="http://algs4.cs.princeton.edu/99misc/IndexBinomialMinPQ.java.html">IndexBinomialMinPQ.java</a></td>
+<td>1</td>
+<td>log <em>N</em></td>
+<td>1</td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>Fibonacci heap</b></td>
+<td><a title="IndexFibonacciMinPQ" href="http://algs4.cs.princeton.edu/99misc/IndexFibonacciMinPQ.java.html">IndexFibonacciMinPQ.java</a></td>
+<td>1</td>
+<td>log <em>N</em> <sup>†</sup></td>
+<td>1</td>
+<td>1 <sup>†</sup></td>
+<td>log <em>N</em> <sup>†</sup></td>
+<td>log <em>N</em></td>
+</tr>
+
+
+<tr><td></td><td></td><td></td><td></td><td></td><td>
+</td><td colspan="2"><sup>†</sup> amortized guarantee
+</td></tr>
+
+</tbody></table>
+</center>
+
+<p><br>
+
+</p><p></p><h2>Symbol tables.</h2>
+The table below summarizes the order of growth of the running time of
+operations for a variety of symbol tables, as implemented in this textbook.
+It ignores leading constants and lower-order terms.
+<!-- Except as noted, all running times are worst-case running times. -->
+
+<p>
+
+</p><center>    
+<table cellspacing="1" cellpadding="5" border="0" bgcolor="#ffffff">
+
+<tbody><tr align="center">
+<td></td>
+<td></td>
+<th colspan="3">worst case</th>
+<th colspan="3">average case</th>
+</tr>
+<tr align="center">
+<th width="150">DATA STRUCTURE</th>
+<th width="175">CODE</th>
+<th width="75">SEARCH</th>
+<th width="75">INSERT</th>
+<th width="75">DELETE</th>
+<th width="75">SEARCH</th>
+<th width="75">INSERT</th>
+<th width="75">DELETE</th>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>sequential search</b><br>(in an unordered array)</td>
+<td><a title="SequentialSearchST" href="http://algs4.cs.princeton.edu/31elementary/SequentialSearchST.java.html">SequentialSearchST.java</a></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>binary search</b><br>(in a sorted array)</td>
+<td><a title="BinarySearchST" href="http://algs4.cs.princeton.edu/31elementary/BinarySearchST.java.html">BinarySearchST.java</a></td>
+<td>log <em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td>log <em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>binary search tree</b><br>(unbalanced)</td>
+<td><a title="BST" href="http://algs4.cs.princeton.edu/32bst/BST.java.html">BST.java</a></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+<td>sqrt(<em>N</em>)</td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>red-black BST</b><br>(left-leaning)</td>
+<td><a title="RedBlackBST" href="http://algs4.cs.princeton.edu/33balanced/RedBlackBST.java.html">RedBlackBST.java</a></td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+<td>log <em>N</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>hash table</b><br>(separate-chaining)</td>
+<td><a title="SeparateChainingHashST" href="http://algs4.cs.princeton.edu/34hash/SeparateChainingHashST.java.html">SeparateChainingHashST.java</a></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td>1 <sup>†</sup></td>
+<td>1 <sup>†</sup></td>
+<td>1 <sup>†</sup></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>hash table</b><br>(linear-probing)</td>
+<td><a title="LinearProbingHashST" href="http://algs4.cs.princeton.edu/34hash/LinearProbingHashST.java.html">LinearProbingHashST.java</a></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td><em>N</em></td>
+<td>1 <sup>†</sup></td>
+<td>1 <sup>†</sup></td>
+<td>1 <sup>†</sup></td>
+</tr>
+
+
+<tr><td></td><td></td><td></td><td></td><td>
+</td><td colspan="3"><sup>†</sup> uniform hashing assumption
+</td></tr>
+
+</tbody></table>
+</center>
+
+<p><br>
+
+</p><p></p><h2>Graph processing.</h2>
+The table below summarizes the order of growth of the worst-case 
+running time and memory usage (beyond the memory for the graph itself)
+for a variety of graph-processing problems, as implemented in this textbook.
+It ignores leading constants and lower-order terms.
+All running times are worst-case running times.
+
+
+<p><br>
+
+</p><center>    
+<table cellspacing="1" cellpadding="5" border="0" bgcolor="#ffffff">
+
+<tbody><tr align="center">
+<th width="250">PROBLEM</th>
+<th width="175">ALGORITHM</th>
+<th width="175">CODE</th>
+<th width="100">TIME</th>
+<th width="100">SPACE</th>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>path</b></td>
+<td>DFS</td>
+<td><a title="DepthFirstPaths" href="http://algs4.cs.princeton.edu/41graph/DepthFirstPaths.java.html">DepthFirstPaths.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>cycle</b></td>
+<td>DFS</td>
+<td><a title="Cycle" href="http://algs4.cs.princeton.edu/41graph/Cycle.java.html">Cycle.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>directed cycle</b></td>
+<td>DFS</td>
+<td><a title="DirectedCycle" href="http://algs4.cs.princeton.edu/42digraph/DirectedCycle.java.html">DirectedCycle.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>topological sort</b></td>
+<td>DFS</td>
+<td><a title="Topological" href="http://algs4.cs.princeton.edu/42digraph/Topological.java.html">Topological.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>bipartiteness / odd cycle</b></td>
+<td>DFS</td>
+<td><a title="Bipartite" href="http://algs4.cs.princeton.edu/41graph/Bipartite.java.html">Bipartite.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>connected components</b></td>
+<td>DFS</td>
+<td><a title="CC" href="http://algs4.cs.princeton.edu/41graph/CC.java.html">CC.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>strong components</b></td>
+<td>Kosaraju–Sharir</td>
+<td><a title="KosarajuSharirSCC" href="http://algs4.cs.princeton.edu/42digraph/KosarajuSharirSCC.java.html">KosarajuSharirSCC.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>Eulerian cycle</b></td>
+<td>DFS</td>
+<td><a title="EulerianCycle" href="http://algs4.cs.princeton.edu/41graph/EulerianCycle.java.html">EulerianCycle.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>E</em> + <em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>directed Eulerian cycle</b></td>
+<td>DFS</td>
+<td><a title="DirectedEulerianCycle" href="http://algs4.cs.princeton.edu/42digraph/DirectedEulerianCycle.java.html">DirectedEulerianCycle.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>transitive closure</b></td>
+<td>DFS</td>
+<td><a title="TransitiveClosure" href="http://algs4.cs.princeton.edu/42digraph/TransitiveClosure.java.html">TransitiveClosure.java</a></td>
+<td><em>V</em> (<em>E</em> + <em>V</em>)</td>
+<td><em>V</em><sup> 2</sup></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>minimum spanning tree</b></td>
+<td>Kruskal</td>
+<td><a title="KruskalMST" href="http://algs4.cs.princeton.edu/43mst/KruskalMST.java.html">KruskalMST.java</a></td>
+<td><em>E</em> log <em>E</em></td>
+<td><em>E</em> + <em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>minimum spanning tree</b></td>
+<td>Prim</td>
+<td><a title="PrimMST" href="http://algs4.cs.princeton.edu/43mst/PrimMST.java.html">PrimMST.java</a></td>
+<td><em>E</em> log <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>minimum spanning tree</b></td>
+<td>Boruvka</td>
+<td><a title="BoruvkaMST" href="http://algs4.cs.princeton.edu/43mst/BoruvkaMST.java.html">BoruvkaMST.java</a></td>
+<td><em>E</em> log <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>shortest paths (unit weights)</b></td>
+<td>BFS</td>
+<td><a title="BreadthFirstPaths" href="http://algs4.cs.princeton.edu/41graph/BreadthFirstPaths.java.html">BreadthFirstPaths.java</a></td>
+<td><em>E</em> + <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>shortest paths (nonnegative weights)</b></td>
+<td>Dijkstra</td>
+<td><a title="DijkstraSP" href="http://algs4.cs.princeton.edu/44sp/DijkstraSP.java.html">DijkstraSP.java</a></td>
+<td><em>E</em> log <em>V</em></td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>shortest paths (negative weights)</b></td>
+<td>Bellman–Ford</td>
+<td><a title="BellmanFordSP" href="http://algs4.cs.princeton.edu/44sp/BellmanFordSP.java.html">BellmanFordSP.java</a></td>
+<td><em>V</em> (<em>V</em> + <em>E</em>)</td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>all-pairs shortest paths</b></td>
+<td>Floyd–Warshall</td>
+<td><a title="FloydWarshall" href="http://algs4.cs.princeton.edu/44sp/FloydWarshall.java.html">FloydWarshall.java</a></td>
+<td><em>V</em><sup> 3</sup></td>
+<td><em>V</em><sup> 2</sup></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>maxflow–mincut</b></td>
+<td>Ford–Fulkerson</td>
+<td><a title="FordFulkerson" href="http://algs4.cs.princeton.edu/64maxflow/FordFulkerson.java.html">FordFulkerson.java</a></td>
+<td><em>E</em> <em>V</em> (<em>E</em> + <em>V</em>)</td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>bipartite matching</b></td>
+<td>Hopcroft–Karp</td>
+<td><a title="HopcroftKarp" href="http://algs4.cs.princeton.edu/65reductions/HopcroftKarp.java.html">HopcroftKarp.java</a></td>
+<td><em>V</em><sup> ½</sup> (<em>E</em> + <em>V</em>)</td>
+<td><em>V</em></td>
+</tr>
+
+<tr align="center" bgcolor="#ebebeb">
+<td><b>assignment problem</b></td>
+<td>successive shortest paths</td>
+<td><a title="AssignmentProblem" href="http://algs4.cs.princeton.edu/65reductions/AssignmentProblem.java.html">AssignmentProblem.java</a></td>
+<td><em>N</em><sup> 3</sup> log <em>N</em></td>
+<td><em>N</em><sup> 2</sup></td>
+</tr>
+
+
+</tbody></table>
+
+</center>
+
+
+
+
+
+<br><br>
+<p class="footer">
+<em>Last modified on October 13, 2015.</em><br><br>
+Copyright © 2002–2014
+<a href="http://www.cs.princeton.edu/~rs" class="footer">Robert Sedgewick</a>
+and
+<a href="http://www.cs.princeton.edu/~wayne" class="footer">Kevin Wayne</a>.
+All rights reserved.
+</p></div>
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Algorithms and Data Structures Cheatsheet_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+ 
+<table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 159px; display: none; top: 852px; left: 23px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body></html>
